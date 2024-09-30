@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Load version
-        run: git checkout ${{ github.event.inputs.version }}  
+        run: git pull && git checkout ${{ github.event.inputs.version }}  
 
       - name: Set up docker
         uses: docker/setup-buildx-action@v2
