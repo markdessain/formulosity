@@ -2,11 +2,12 @@ name: Release
 
 on:
   workflow_dispatch:
-    version:
-      type: choice
-      description: Which tag to release
-      options: 
-      - v0.1.5
+    inputs:
+      version:
+        type: choice
+        description: Which tag to release
+        options: 
+        - v0.1.5
 
 jobs:
   build:
@@ -22,7 +23,7 @@ jobs:
 
       - name: Load version
         run: git checkout ${{ github.event.inputs.version }}  
-        
+
       - name: Set up docker
         uses: docker/setup-buildx-action@v2
         with:
