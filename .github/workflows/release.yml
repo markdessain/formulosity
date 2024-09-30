@@ -32,7 +32,7 @@ jobs:
         run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login --username ${{ vars.DOCKER_HUB_USERNAME }} --password-stdin 
 
       - name: Build API 
-        run: cd api && docker build --push --tag markdessain/formulosity:${{ github.event.release.tag_name }}-api .
+        run: cd api && docker build --push --tag markdessain/formulosity:${{ github.event.inputs.version }}-api .
 
       - name: Build UI
-        run: cd ui && docker build --push --tag markdessain/formulosity:${{ github.event.release.tag_name }}-ui .
+        run: cd ui && docker build --push --tag markdessain/formulosity:${{ github.event.inputs.version }}-ui .
